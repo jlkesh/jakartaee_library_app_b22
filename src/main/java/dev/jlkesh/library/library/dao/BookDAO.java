@@ -4,9 +4,7 @@ import dev.jlkesh.library.library.domains.Book;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
-import java.security.Timestamp;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -21,7 +19,7 @@ public class BookDAO extends DAO<Book, Integer> {
                         published_at,
                         cover_id,
                         document_id
-            ) values ();""";
+            ) values (?, ?, ?, ?, ?, ?, ?, ?);""";
     private static BookDAO instance;
 
 
