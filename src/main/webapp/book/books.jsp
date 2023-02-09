@@ -19,12 +19,10 @@
         <div class="books_list">
             <c:forEach items="${books}" var="book">
                 <div class="card">
-                    <img src="/download?filename=${book.getCoverGeneratedFileName()}" class="card-img-top" alt="${book.getCoverOriginalFileName()}">
+                    <img src="/download?filename=${book.getCoverGeneratedFileName()}" class="card-img-top" alt="${book.getCoverOriginalFileName()}" loading="lazy" />
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the
-                            card's content.</p>
+                        <h5 class="card-title">${book.getTitle()} by <span class="book_title">${book.getAuthor()}</span></h5>
+                        <p class="card-text">${book.getDescription()}</p>
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">An item</li>
