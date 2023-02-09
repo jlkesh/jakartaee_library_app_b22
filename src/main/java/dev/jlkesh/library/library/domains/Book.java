@@ -14,13 +14,14 @@ public class Book {
     private String title;
     private String author;
     private String publisher;
+    private String description;
     private LocalDate publishedAt;
     private int pages;
     private int downloads;
     private int views;
     private int likes;
     private int dislikes;
-    private String category;
+    private Integer category;
     private boolean deleted;
     private Integer coverId;
     private Integer documentId;

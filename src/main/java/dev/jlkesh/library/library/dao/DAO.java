@@ -23,9 +23,9 @@ public abstract class DAO<T, ID> {
             }
     );
 
-    protected abstract void save(T t);
+    protected abstract T save(T t);
 
-    protected abstract boolean get(ID id);
+    protected abstract T get(ID id);
 
     protected abstract boolean update(T t);
 

@@ -20,13 +20,13 @@ public class DocumentDAO extends DAO<Document, Integer> {
             mimeType,
             filePath,
             fileSize,
-            extension) values (?,?,?,?,?,?);""";
+            extension) values (?,?,?,?,?,?) returning id;""";
     private final String SELECT_BY_NEW_NAME = """
                             select * from library1.document t where t.generatedFileName = ?;
             """;
 
     @Override
-    public void save(Document document) {
+    public Document save(Document document) {
         Connection connection = getConnection();
         try (var pr = connection.prepareStatement(INSERT_DOCUMENT)) {
             pr.setString(1, document.getGeneratedFileName());
@@ -35,15 +35,20 @@ public class DocumentDAO extends DAO<Document, Integer> {
             pr.setString(4, document.getFilePath());
             pr.setLong(5, document.getFileSize());
             pr.setString(6, document.getExtension());
-            pr.execute();
+            ResultSet rs = pr.executeQuery();
+            if (rs.next())
+                document.setId(rs.getInt("id"));
+            else
+                throw new RuntimeException("Internal server error");
+            return document;
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 
     @Override
-    public boolean get(Integer integer) {
-        return false;
+    protected Document get(Integer integer) {
+        return null;
     }
 
     @Override

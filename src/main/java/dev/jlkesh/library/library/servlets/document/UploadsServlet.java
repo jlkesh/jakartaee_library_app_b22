@@ -18,7 +18,7 @@ import java.util.concurrent.CompletableFuture;
 @WebServlet(name = "UploadsServlet", value = "/upload")
 @MultipartConfig(location = "/home/jlkesh/apps/library/upload/")
 public class UploadsServlet extends HttpServlet {
-    private static final Path rootPath = Path.of("/home/jlkesh/apps/library/upload");
+    private static final Path rootPath = Path.of(System.getProperty("user.home"), "/apps/library/upload");
 
     @Override
     public void init() throws ServletException {
