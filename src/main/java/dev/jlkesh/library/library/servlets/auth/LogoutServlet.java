@@ -21,9 +21,11 @@ public class LogoutServlet extends HttpServlet {
             for (Cookie cookie : cookies) {
                 if (cookie.getValue().equals(session.getId())) {
                     cookie.setMaxAge(0);
+                    response.addCookie(cookie);
                 }
             }
         }
         response.sendRedirect("/auth/login");
+
     }
 }

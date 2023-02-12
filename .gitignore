@@ -162,3 +162,5 @@ fabric.properties
 /.idea/.gitignore
 /.idea/misc.xml
 /.mvn/wrapper/maven-wrapper.properties
+/.idea/sqldialects.xml
+/.idea/vcs.xml

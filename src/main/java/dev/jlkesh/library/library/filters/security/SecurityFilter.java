@@ -48,7 +48,6 @@ public class SecurityFilter implements Filter {
             Cookie[] cookies = Objects.requireNonNullElse(request.getCookies(), new Cookie[]{});
             Arrays.stream(cookies)
                     .filter(cookie -> cookie.getName().equals("sessionID"))
-                    .filter(cookie -> cookie.)
                     .findFirst()
                     .ifPresentOrElse((cookie -> {
                         try {
