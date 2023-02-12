@@ -4,7 +4,9 @@ import dev.jlkesh.library.library.domains.Category;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import org.apache.taglibs.standard.tag.common.sql.DataSourceWrapper;
 
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,6 +19,7 @@ public class CategoryDAO extends DAO<Category, Integer> {
 
     @Override
     protected Category get(Integer integer) {
+        DataSource dataSource = new DataSourceWrapper();
         return null;
     }
 
